@@ -67,9 +67,9 @@ if "Data Exploration (EDA)" in selected_sections:
     migration_route_counts = migrant_App['migration route'].value_counts()
     st.bar_chart(migration_route_counts)
 
-    top_regions_origin = migrant_App['region of origin group'].value_counts().head(15)
+    top_regions_origin = migrant_App['region of origin'].value_counts().head(15)
     #st.write(top_regions_origin)
-    top_countries_origin = migrant_App['country of origin group'].value_counts().head(15)
+    top_countries_origin = migrant_App['country of origin'].value_counts().head(15)
     #st.write(top_countries_origin)
     top_extracted_countries = migrant_App['extracted country'].value_counts().head(15)
     #st.write(top_extracted_countries)
