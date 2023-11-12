@@ -50,7 +50,7 @@ if "Data Exploration (EDA)" in selected_sections:
     perspective on the dataset's characteristics.""")
     
     st.markdown("<h1 style='text-align: left; color: blue; font-size: 21px;'>Preliminary Analysis:</h1>", unsafe_allow_html=True)
-    
+    1
     # Survival rate throughout the year
     migrant_App['incident year'] = migrant_App['incident year'].astype(int)
     overall_survival_rate_by_year = migrant_App.groupby('incident year').apply(lambda x: x['number of survivors'].sum() / (x['total number of dead and missing'].sum() + x['number of survivors'].sum())).reset_index(name='overall_survival_rate')
@@ -92,8 +92,8 @@ if "Data Exploration (EDA)" in selected_sections:
     #number_of_males = st.sidebar.number_input("number of males", min_value=0)
 
        
-    # Group data by "Region of Origin"
-    grouped_data = migrant_App.groupby("region of incident").agg({
+    #  data by "Region of Origin"
+    ed_data = migrant_App.by("region of incident").agg({
         "number of males": "sum",
         "number of females": "sum",
         "number of children": "sum"
@@ -128,8 +128,8 @@ if "Data Exploration (EDA)" in selected_sections:
     st.markdown("<p style='text-align: center; color: yellow; font-size: 18px;'>Aggregated Data by Region:</p>", unsafe_allow_html=True)
   
     st.write(f"The table below aggregates number of incidents, categorized by region of incidents and gender across all recorded years.")
-    grouped_data.columns = [f"{col.upper()}" for col in grouped_data.columns]
-    st.dataframe(grouped_data)
+    ed_data.columns = [f"{col.upper()}" for col in ed_data.columns]
+    st.dataframe(ed_data)
     
     #st.markdown("<h1 style='text-align: left; color: blue; font-size: 21px;'>Population Breakdown by Gender and Region:</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: yellow; font-size: 18px;'>Population Breakdown by Gender and Region:</p>", unsafe_allow_html=True)
@@ -138,7 +138,7 @@ if "Data Exploration (EDA)" in selected_sections:
     aids in identifying regions with higher incident rates.""")
 
     # Plot the results (we can customize other chart types)
-    st.bar_chart(grouped_data)
+    st.bar_chart(ed_data)
 
     st.markdown("<p style='font-size: 15px; font-style: italic;'>Note: The above statistics and visualizations provide a preliminary understanding of the dataset. For a more focused analysis, feel free to use the sidebar filters to explore data for a specific incident year and region of incident</p>", unsafe_allow_html=True)
 
@@ -164,7 +164,7 @@ if "Data Exploration (EDA)" in selected_sections:
         st.write("Number of survivors:", filtered_data["number of survivors"].sum())
         
         filtered_data_1 = migrant_App[(migrant_App['incident year'] == incident_year) & (migrant_App['region of incident'] == region_of_origin)]
-        unique_countries = filtered_data_1["country of origin group"].unique()
+        unique_countries = filtered_data_1["country of origin"].unique()
         styled_regions = ", ".join([f"<span style='color:green;'>{region}</span>" for region in unique_countries])
 
 
