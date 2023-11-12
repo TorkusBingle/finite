@@ -128,8 +128,8 @@ if "Data Exploration (EDA)" in selected_sections:
     st.markdown("<p style='text-align: center; color: yellow; font-size: 18px;'>Aggregated Data by Region:</p>", unsafe_allow_html=True)
   
     st.write(f"The table below aggregates number of incidents, categorized by region of incidents and gender across all recorded years.")
-    ed_data.columns = [f"{col.upper()}" for col in migrant_App.columns]
-    st.dataframe(ed_data)
+    grouped_data.columns = [f"{col.upper()}" for col in grouped_data.columns]
+    st.dataframe(grouped_data)
     
     #st.markdown("<h1 style='text-align: left; color: blue; font-size: 21px;'>Population Breakdown by Gender and Region:</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: yellow; font-size: 18px;'>Population Breakdown by Gender and Region:</p>", unsafe_allow_html=True)
@@ -138,7 +138,7 @@ if "Data Exploration (EDA)" in selected_sections:
     aids in identifying regions with higher incident rates.""")
 
     # Plot the results (we can customize other chart types)
-    st.bar_chart(ed_data)
+    st.bar_chart(grouped_data)
 
     st.markdown("<p style='font-size: 15px; font-style: italic;'>Note: The above statistics and visualizations provide a preliminary understanding of the dataset. For a more focused analysis, feel free to use the sidebar filters to explore data for a specific incident year and region of incident</p>", unsafe_allow_html=True)
 
