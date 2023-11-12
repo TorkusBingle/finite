@@ -93,7 +93,7 @@ if "Data Exploration (EDA)" in selected_sections:
 
        
     #  data by "Region of Origin"
-    filtered_data = migrant_App.by("region of incident").agg({
+    grouped_data = migrant_App.groupby("region of incident").agg({
         "number of males": "sum",
         "number of females": "sum",
         "number of children": "sum"
