@@ -378,7 +378,7 @@ elif "Modeling" in selected_sections:
 
     # Creates the histogram
     col2.subheader(f'Causes of Death for {migration_route}')
-    fig = px.histogram(filtered_data_ts, x='Cause of Death Category')
+    fig = px.histogram(filtered_data_ts, x='cause of death category')
     fig.update_layout(
         width=600,  # Set the width in pixels
         height=400  # Set the height in pixels
