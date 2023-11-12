@@ -59,7 +59,7 @@ if "Data Exploration (EDA)" in selected_sections:
 
     # Country with most migrants
     st.markdown("<p style='text-align: center; color: yellow; font-size: 18px;'>Number of Migrants Per Country:</p>", unsafe_allow_html=True)
-    country_counts = migrant_App['country of origin group'].value_counts()
+    country_counts = migrant_App['country of origin'].value_counts()
     st.bar_chart(country_counts)
 
     # Most migration route
@@ -108,7 +108,7 @@ if "Data Exploration (EDA)" in selected_sections:
         color='total number of dead and missing', 
         size='total number of dead and missing',
         hover_name='region of incident',
-        hover_data=['number of dead', 'number of survivors', 'country of origin group'],  
+        hover_data=['number of dead', 'number of survivors', 'country of origin'],  
         projection='natural earth',
         #title='Geographical Distribution of Incidents',
         labels={'total number of dead and missing': 'Incident Count'},
